@@ -85,7 +85,7 @@ spec:
                     imagePullPolicy: Always
                     env:
                       - name: CONVERTER_IMAGE
-                        value: quay.io/philip860/jenkins2tekton-converter@sha256:1bd6fd28be2059f6680fbf58dbc0cb8a79d0e229266cecf4fb5f87529d6dcdec
+                        value: quay.io/philip860/jenkins2tekton-converter@sha256:dd935c4f3a904b306ca467251462de05091c9724356be91a3e26790bebfcc4a5
                     ports:
                       - containerPort: 8081
                         name: probes
@@ -200,7 +200,7 @@ spec:
     - name: operator
       image: quay.io/philip860/jenkins2tekton-operator:0.1.0
     - name: converter
-      image: quay.io/philip860/jenkins2tekton-converter@sha256:1bd6fd28be2059f6680fbf58dbc0cb8a79d0e229266cecf4fb5f87529d6dcdec
+      image: quay.io/philip860/jenkins2tekton-converter@sha256:dd935c4f3a904b306ca467251462de05091c9724356be91a3e26790bebfcc4a5
   keywords:
     - jenkins
     - tekton
