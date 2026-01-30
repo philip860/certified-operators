@@ -92,7 +92,7 @@ spec:
                 serviceAccountName: jenkins2tekton-operator-controller-manager
                 containers:
                   - name: manager
-                    image: quay.io/philip860/jenkins2tekton-operator:0.1.0@sha256:f58b4a9d9626aa249805e0e4c4f582526cbd7ca6998b07dd24de301c3e1ff11d
+                    image: quay.io/philip860/jenkins2tekton-operator@sha256:f58b4a9d9626aa249805e0e4c4f582526cbd7ca6998b07dd24de301c3e1ff11d
                     imagePullPolicy: Always
                     env:
                       - name: CONVERTER_IMAGE
@@ -209,7 +209,7 @@ spec:
 
   relatedImages:
     - name: operator
-      image: quay.io/philip860/jenkins2tekton-operator:0.1.0
+      image: quay.io/philip860/jenkins2tekton-operator@sha256:f58b4a9d9626aa249805e0e4c4f582526cbd7ca6998b07dd24de301c3e1ff11d
     - name: converter
       image: quay.io/philip860/jenkins2tekton-converter@sha256:dd935c4f3a904b306ca467251462de05091c9724356be91a3e26790bebfcc4a5
   keywords:
