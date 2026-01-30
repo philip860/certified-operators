@@ -37,6 +37,11 @@ spec:
     This operator converts Jenkins declarative pipelines into Tekton resources in the target namespace.
   version: 0.1.0
   maturity: alpha
+
+  # ✅ Addresses Preflight warning. Pick a value that matches your tested baseline.
+  # OpenShift 4.20 includes Kubernetes 1.33; a safe baseline for modern operators is usually >=1.28 or >=1.29.
+  minKubeVersion: "1.28.0"
+
   provider:
     name: Duncan-Networks
   links:
@@ -54,6 +59,7 @@ spec:
       supported: true
     - type: AllNamespaces
       supported: true
+
   install:
     strategy: deployment
     spec:
@@ -71,6 +77,7 @@ spec:
                   app.kubernetes.io/name: jenkins2tekton-operator
                   app.kubernetes.io/component: controller-manager
               spec:
+                # ✅ Keep referencing the SA name here
                 serviceAccountName: jenkins2tekton-operator-controller-manager
                 containers:
                   - name: manager
@@ -97,6 +104,7 @@ spec:
                       limits:
                         cpu: 500m
                         memory: 512Mi
+
       permissions:
         - serviceAccountName: jenkins2tekton-operator-controller-manager
           rules:
@@ -110,12 +118,12 @@ spec:
               resources:
                 - "jenkinspipelines"
                 - "jenkinspipelines/status"
-                # ✅ FIX: allow controller ownership semantics (blockOwnerDeletion requires finalizers perms)
                 - "jenkinspipelines/finalizers"
               verbs: ["get", "list", "watch", "create", "update", "patch", "delete"]
             - apiGroups: ["tekton.dev"]
               resources: ["tasks", "pipelines", "pipelineruns"]
               verbs: ["get", "list", "watch", "create", "update", "patch", "delete"]
+
       clusterPermissions:
         - serviceAccountName: jenkins2tekton-operator-controller-manager
           rules:
@@ -129,12 +137,12 @@ spec:
               resources:
                 - "jenkinspipelines"
                 - "jenkinspipelines/status"
-                # ✅ FIX (cluster-scoped RBAC flavor too)
                 - "jenkinspipelines/finalizers"
               verbs: ["get", "list", "watch", "create", "update", "patch", "delete"]
             - apiGroups: ["tekton.dev"]
               resources: ["tasks", "pipelines", "pipelineruns"]
               verbs: ["get", "list", "watch", "create", "update", "patch", "delete"]
+
   customresourcedefinitions:
     owned:
       - name: jenkinspipelines.jenkins2tekton.io
@@ -187,6 +195,7 @@ spec:
             displayName: Prune Old Generated Resources
             x-descriptors:
               - urn:alm:descriptor:com.tectonic.ui:booleanSwitch
+
   relatedImages:
     - name: operator
       image: quay.io/philip860/jenkins2tekton-operator:0.1.0
