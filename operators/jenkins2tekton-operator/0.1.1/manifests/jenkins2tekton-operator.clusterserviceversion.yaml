@@ -43,7 +43,7 @@ metadata:
         }
       ]
 spec:
-  displayName: Jenkinsfile to Tekton Operator
+  displayName: Jenkins2Tekton Operator
   description: |
     This operator converts Jenkins declarative pipelines into Tekton resources in the target namespace.
   version: 0.1.0
