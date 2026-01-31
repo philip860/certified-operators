@@ -212,6 +212,8 @@ spec:
       image: quay.io/philip860/jenkins2tekton-operator@sha256:f58b4a9d9626aa249805e0e4c4f582526cbd7ca6998b07dd24de301c3e1ff11d
     - name: converter
       image: quay.io/philip860/jenkins2tekton-converter@sha256:dd935c4f3a904b306ca467251462de05091c9724356be91a3e26790bebfcc4a5
+    - name: runner-ubi
+      image: registry.access.redhat.com/ubi9/ubi@sha256:c8df11b65b18fcf384d5b7fa53e2a92f381a2d9ad78b9de41dc6f2aa161a0e04
   keywords:
     - jenkins
     - tekton
