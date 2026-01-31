@@ -42,16 +42,26 @@ metadata:
           }
         }
       ]
+
+    # Allow clusters on older 0.1.x releases to upgrade directly to 0.1.1
+    # even if intermediate versions are missing from some catalog/index builds.
+    olm.skipRange: ">=0.1.0 <0.1.1"
+
 spec:
   displayName: Jenkins2Tekton Operator
   description: |
     This operator converts Jenkins declarative pipelines into Tekton resources in the target namespace.
-  version: 0.1.0
-  maturity: alpha
+  version: 0.1.1
+  maturity: stable
 
   # ✅ Addresses Preflight warning. Pick a value that matches your tested baseline.
   # OpenShift 4.20 includes Kubernetes 1.33; a safe baseline for modern operators is usually >=1.28 or >=1.29.
   minKubeVersion: "1.28.0"
+
+
+  # Replace the previous published stable bundle in the catalog
+  replaces: jenkins2tekton-operator.v0.1.0
+
 
   provider:
     name: Duncan-Networks
