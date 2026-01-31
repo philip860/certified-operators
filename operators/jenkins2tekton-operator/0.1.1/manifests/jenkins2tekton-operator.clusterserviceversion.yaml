@@ -2,7 +2,7 @@
 apiVersion: operators.coreos.com/v1alpha1
 kind: ClusterServiceVersion
 metadata:
-  name: jenkins2tekton-operator.v0.1.0
+  name: jenkins2tekton-operator.v0.1.1
   namespace: placeholder
   annotations:
     categories: "Developer Tools"
