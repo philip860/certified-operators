@@ -120,11 +120,11 @@ spec:
                 serviceAccountName: jenkins2tekton-operator-controller-manager
                 containers:
                   - name: manager
-                    image: quay.io/philip860/jenkins2tekton-operator:0.1.2
+                    image: quay.io/philip860/jenkins2tekton-operator@sha256:6fdbc94e8284b44964a6ce46f8429bc8cf34b510a0138c3921f8137b7337ddf5
                     imagePullPolicy: Always
                     env:
                       - name: CONVERTER_IMAGE
-                        value: quay.io/philip860/jenkins2tekton-converter:0.1.2
+                        value: quay.io/philip860/jenkins2tekton-converter@sha256:f051249f1e44ec8e371f85350aeedabb8c7785979b4cadbd0b74cd959033e2c1
                     ports:
                       - containerPort: 8081
                         name: probes
@@ -276,9 +276,9 @@ spec:
 
   relatedImages:
     - name: operator
-      image: quay.io/philip860/jenkins2tekton-operator:0.1.2
+      image: quay.io/philip860/jenkins2tekton-operator@sha256:6fdbc94e8284b44964a6ce46f8429bc8cf34b510a0138c3921f8137b7337ddf5
     - name: converter
-      image: quay.io/philip860/jenkins2tekton-converter:0.1.2
+      image: quay.io/philip860/jenkins2tekton-converter@sha256:f051249f1e44ec8e371f85350aeedabb8c7785979b4cadbd0b74cd959033e2c1
     - name: runner-ubi
       image: registry.access.redhat.com/ubi9/ubi@sha256:c8df11b65b18fcf384d5b7fa53e2a92f381a2d9ad78b9de41dc6f2aa161a0e04
 
