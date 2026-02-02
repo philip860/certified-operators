@@ -120,7 +120,7 @@ spec:
                 serviceAccountName: jenkins2tekton-operator-controller-manager
                 containers:
                   - name: manager
-                    image: quay.io/philip860/jenkins2tekton-operator@sha256:a3f3d955500149f9dee4f83205b1e47d22bb40956657ae6ac1e3e798ebeebacd
+                    image: quay.io/philip860/jenkins2tekton-operator@sha256:3b0109eeec618637c2da32672b2a66b0f5e6812e2b981a7c2e393b0ab88960a0
                     imagePullPolicy: Always
                     env:
                       - name: CONVERTER_IMAGE
@@ -276,7 +276,7 @@ spec:
 
   relatedImages:
     - name: operator
-      image: quay.io/philip860/jenkins2tekton-operator@sha256:a3f3d955500149f9dee4f83205b1e47d22bb40956657ae6ac1e3e798ebeebacd
+      image: quay.io/philip860/jenkins2tekton-operator@sha256:3b0109eeec618637c2da32672b2a66b0f5e6812e2b981a7c2e393b0ab88960a0
     - name: converter
       image: quay.io/philip860/jenkins2tekton-converter@sha256:5185e774e87df7659a51fba98bcffaccf32146cb7586aa92284935308ef1d78b
     - name: runner-ubi
